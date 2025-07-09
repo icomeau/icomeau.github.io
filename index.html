@@ -1,36 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <script>
-  if (window.location.hostname === "www.icomeau.com") {
-    window.location.replace("https://icomeau.com" + window.location.pathname);
-  }
-</script>
-
- <meta charset="UTF-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>me@icomeau.com</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
+
+  <script>
+    if (window.location.hostname === "www.icomeau.com") {
+      window.location.replace("https://icomeau.com" + window.location.pathname);
+    }
+  </script>
 </head>
 <body>
+  <div class="container">
+    <div class="label top-left">me</div>
+    <div class="label top-right">website</div>
+    <div class="label bottom-left">instagram</div>
+    <div class="label bottom-right">email</div>
 
-  <a href="mailto:me@icomeau.com" class="link-area">
-    <div class="email-container">
-      me@icomeau.com
+    <a href="mailto:me@icomeau.com" class="center-dot">me@icomeau.com</a>
 
-      <div class="labels">
-        <div class="me">me</div>
-        <div class="web">website</div>
-        <div class="insta">instagram</div>
-        <div class="email">email</div>
-      </div>
-
-      <div class="line line-horizontal me"></div>
-      <div class="line line-horizontal web"></div>
-      <div class="line line-horizontal insta"></div>
-      <div class="line line-horizontal email"></div>
-    </div>
-  </a>
-
-</body>
-</html>
+    <svg class="lines" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <line x1="50" y1="50" x2="15" y2="15" />
