@@ -7,85 +7,10 @@
   }
 </script>
 
-  <meta charset="UTF-8" />
+ <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>me@icomeau.com</title>
-  <style>
-    body {
-      font-family: "Segoe UI", sans-serif;
-      background: #ffffff;
-      color: #000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      flex-direction: column;
-    }
-
-    .email-container {
-      position: relative;
-      font-size: 1.6rem;
-      font-weight: bold;
-      cursor: pointer;
-      transition: color 0.3s ease;
-    }
-
-    .email-container:hover {
-      color: #0077cc;
-    }
-
-    .labels {
-      position: absolute;
-      width: 100%;
-      text-align: center;
-      font-size: 0.75rem;
-      color: #555;
-    }
-
-    .labels div {
-      position: absolute;
-      transition: all 0.3s ease;
-      opacity: 0.8;
-    }
-
-    .labels .me    { top: -50px; left: -70px; }
-    .labels .web   { top: -50px; right: -80px; }
-    .labels .insta { bottom: -40px; left: 10px; }
-    .labels .email { bottom: -60px; }
-
-    .line {
-      position: absolute;
-      background: #000;
-      height: 1px;
-      transition: background 0.3s;
-    }
-
-    .line:hover {
-      background: #0077cc;
-    }
-
-    .line-horizontal {
-      width: 80px;
-      height: 1px;
-    }
-
-    .line-vertical {
-      width: 1px;
-      height: 30px;
-    }
-
-    .link-area {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    /* Lines (diagram style) */
-    .line.me      { top: -20px; left: -30px; transform: rotate(45deg); }
-    .line.web     { top: -20px; right: -30px; transform: rotate(-45deg); }
-    .line.insta   { bottom: -20px; left: 30%; transform: rotate(0deg); }
-    .line.email   { bottom: -30px; left: 50%; transform: translateX(-50%); }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -107,9 +32,5 @@
     </div>
   </a>
 
-  <script>
-    // Optional: Add subtle animations or line interactions later
-    // Hover effects are CSS-based already
-  </script>
 </body>
 </html>
