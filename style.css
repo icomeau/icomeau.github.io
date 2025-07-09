@@ -1,107 +1,82 @@
 body {
-  font-family: "Segoe UI", sans-serif;
-  background: #ffffff;
-  color: #000;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  margin: 0;
-  flex-direction: column;
 }
 
-.email-container {
+.circle-container {
   position: relative;
-  font-size: 1.6rem;
+  width: 300px;
+  height: 300px;
+}
+
+.center-email {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-weight: bold;
-  cursor: pointer;
+  text-decoration: none;
+  color: #000;
+  z-index: 2;
   transition: color 0.3s ease;
 }
 
-.email-container:hover {
+.center-email:hover {
   color: #0077cc;
 }
 
-.labels {
+.icon {
+  position: absolute;
+  font-size: 1.2rem;
+  color: #444;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.circle-container:hover .icon {
+  opacity: 1;
+}
+
+/* Positions around center (circular layout) */
+.icon.me        { top: 10%;  left: 50%; transform: translateX(-50%); }
+.icon.website   { top: 50%;  right: 10%; transform: translateY(-50%); }
+.icon.instagram { bottom: 10%; left: 50%; transform: translateX(-50%); }
+.icon.email     { top: 50%;  left: 10%; transform: translateY(-50%); }
+
+.svg-lines {
   position: absolute;
   width: 100%;
-  text-align: center;
-  font-size: 0.75rem;
-  color: #555;
+  height: 100%;
+  z-index: 1;
 }
 
-.labels div {
-  position: absolute;
-  transition: all 0.3s ease;
-  opacity: 0.8;
+.svg-lines line {
+  stroke: black;
+  stroke-width: 1.5;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: drawLine 1s ease-out forwards;
 }
 
-.labels .me {
-  top: -50px;
-  left: -70px;
+.svg-lines line:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.svg-lines line:nth-child(3) {
+  animation-delay: 0.4s;
+}
+.svg-lines line:nth-child(4) {
+  animation-delay: 0.6s;
 }
 
-.labels .web {
-  top: -50px;
-  right: -80px;
-}
-
-.labels .insta {
-  bottom: -40px;
-  left: 10px;
-}
-
-.labels .email {
-  bottom: -60px;
-}
-
-.line {
-  position: absolute;
-  background: #000;
-  height: 1px;
-  transition: background 0.3s;
-}
-
-.line:hover {
-  background: #0077cc;
-}
-
-.line-horizontal {
-  width: 80px;
-  height: 1px;
-}
-
-.line-vertical {
-  width: 1px;
-  height: 30px;
-}
-
-.link-area {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* Lines (diagram style) */
-.line.me {
-  top: -20px;
-  left: -30px;
-  transform: rotate(45deg);
-}
-
-.line.web {
-  top: -20px;
-  right: -30px;
-  transform: rotate(-45deg);
-}
-
-.line.insta {
-  bottom: -20px;
-  left: 30%;
-  transform: rotate(0deg);
-}
-
-.line.email {
-  bottom: -30px;
-  left: 50%;
-  transform: translateX(-50%);
+@keyframes drawLine {
+  to {
+    stroke-dashoffset: 0;
+  }
 }
