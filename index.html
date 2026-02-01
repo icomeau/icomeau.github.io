@@ -63,6 +63,63 @@
             font-size: 1.1rem;
             margin-bottom: 1.5rem;
             display: block;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .handle:hover {
+            transform: scale(1.05);
+        }
+
+        .socials-overlay {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            margin-bottom: 0;
+        }
+
+        .socials-overlay.active {
+            max-height: 500px;
+            margin-bottom: 1.5rem;
+        }
+
+        .socials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 0.75rem;
+            padding: 1rem;
+            background: rgba(0,0,0,0.03);
+            border-radius: 15px;
+            margin-top: 1rem;
+        }
+
+        .social-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 0.5rem;
+            background: white;
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--primary);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .social-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0,122,255,0.2);
+            color: var(--accent);
+        }
+
+        .social-item i {
+            font-size: 1.8rem;
+        }
+
+        .social-item span {
+            font-size: 0.75rem;
+            font-weight: 500;
         }
 
         .info-grid {
@@ -170,7 +227,40 @@
         <div class="profile-img">iC</div>
         
         <h1>iComeau</h1>
-        <span class="handle">@icomeau</span>
+        <span class="handle" onclick="toggleSocials()">@icomeau</span>
+        
+        <div class="socials-overlay" id="socialsOverlay">
+            <div class="socials-grid">
+                <a href="https://facebook.com/icomeau" target="_blank" class="social-item">
+                    <i class="fa-brands fa-facebook"></i>
+                    <span>Facebook</span>
+                </a>
+                <a href="https://twitter.com/icomeau" target="_blank" class="social-item">
+                    <i class="fa-brands fa-x-twitter"></i>
+                    <span>X/Twitter</span>
+                </a>
+                <a href="https://instagram.com/icomeau" target="_blank" class="social-item">
+                    <i class="fa-brands fa-instagram"></i>
+                    <span>Instagram</span>
+                </a>
+                <a href="https://bsky.app/profile/icomeau.bsky.social" target="_blank" class="social-item">
+                    <i class="fa-brands fa-bluesky"></i>
+                    <span>Bluesky</span>
+                </a>
+                <a href="https://mastodon.social/@icomeau" target="_blank" class="social-item">
+                    <i class="fa-brands fa-mastodon"></i>
+                    <span>Mastodon</span>
+                </a>
+                <a href="https://youtube.com/@icomeau" target="_blank" class="social-item">
+                    <i class="fa-brands fa-youtube"></i>
+                    <span>YouTube</span>
+                </a>
+                <a href="https://linkedin.com/in/icomeau" target="_blank" class="social-item">
+                    <i class="fa-brands fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+            </div>
+        </div>
 
         <div class="info-grid">
             <div class="info-item">
@@ -185,6 +275,7 @@
 
         <div class="social-bar">
             <a href="https://www.linkedin.com/in/icomeau" target="_blank" class="social-link" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="mailto:me@icomeau.com" class="social-link" title="Email"><i class="fa-solid fa-paper-plane"></i></a>
         </div>
 
         <div class="footer-clock" id="clock">00:00:00</div>
@@ -227,6 +318,11 @@
                     btn.innerHTML = originalText;
                 }, 2000);
             });
+        }
+
+        function toggleSocials() {
+            const overlay = document.getElementById('socialsOverlay');
+            overlay.classList.toggle('active');
         }
     </script>
 
