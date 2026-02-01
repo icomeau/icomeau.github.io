@@ -6,6 +6,50 @@
     <title>iComeau | Official Site</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        .ip-box {
+    margin-top: 1.5rem;
+    background: rgba(0,0,0,0.03);
+    border-radius: 15px;
+    padding: 1rem;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.ip-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.6;
+    margin-bottom: 0.5rem;
+}
+
+.ip-address {
+    font-family: 'Courier New', monospace;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+}
+
+.copy-btn {
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 500;
+}
+
+.copy-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0,122,255,0.3);
+}
+
+.copy-btn:active {
+    transform: scale(0.98);
+}
         :root {
             --primary: #000000;
             --accent: #007AFF; /* Modern Apple Blue */
@@ -161,6 +205,26 @@
         setInterval(updateClock, 1000);
         updateClock();
     </script>
+// Fetch IP address
+fetch('https://api.ipify.org?format=json')
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('ip-address').innerText = data.ip;
+    })
+    .catch(error => {
+        document.getElementById('ip-address').innerText = 'Unable to fetch IP';
+    });
 
+function copyIP() {
+    const ipText = document.getElementById('ip-address').innerText;
+    navigator.clipboard.writeText(ipText).then(() => {
+        const btn = document.querySelector('.copy-btn');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+        setTimeout(() => {
+            btn.innerHTML = originalText;
+        }, 2000);
+    });
+}
 </body>
 </html>
